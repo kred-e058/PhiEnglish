@@ -1,0 +1,110 @@
+body{
+    margin: 0;
+    padding:5px;
+    background-color: #1E1E1E;
+    color: #fffffe;
+    font-family: hurme_no2-webfont,-apple-system,BlinkMacSystemFont,sans-serif;
+}
+button{
+    cursor:pointer;
+}
+.navbar{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 800px;
+    min-height: 50px;
+    margin: 0 auto;
+    /*  */
+    
+}
+    .left-nav{
+        /* width: 50px;
+        height: 50px; */
+        /* margin-right: 10px; */
+        cursor: pointer;
+    }
+    .right-nav{
+        /* margin-right: 10px; */
+        font-size: 17px;
+        font-weight: 530;
+        cursor: pointer;
+    }
+.container-twoButton{
+    background-color: #323240;
+    border-radius: 9px 9px 0px 0px;
+    padding: 7px;
+    margin-top:20px;
+    font-size: 20px;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.createTagFolder{
+    background-color: #7f5af0;
+    border-radius: 20px;
+    padding-bottom: 10px;
+    padding-top:10px;
+    font-size: 20px;
+    cursor:pointer;
+    color: #fffffe;
+}
+.container-2{
+    background-color: #323240;
+    border-radius: 0px 0px 9px 9px;
+    padding: 7px;
+    max-width: 800px;
+    margin: 0 auto;
+}
+    .url{
+        margin:0 auto;
+        background-color: #4e4545;
+        text-align: left;
+        border-radius:6px;
+        padding:5px;
+        padding-left: 20px;
+        max-width: 600px;
+        font-size: 18px;
+        margin-bottom: 10px;
+    }
+        .folder-url{
+            background-color: #00b894;;
+            border-radius: 5px;
+            color: white;
+            font-size: 14px;
+            
+        }
+    .iconTag{
+        width: 120px;
+        height: 120px;
+        cursor:pointer;
+    }
+
+    .iconFolder{
+        width: 120px;
+        height: 120px;
+        cursor:pointer;
+    }
+    .back_button{
+        width: 120px;
+        height: 120px;
+    }
+img, button {
+  vertical-align: top;
+}   
+
+.icon-box{
+    display:inline-block;
+    width:120px;
+    margin-bottom:50px;
+    margin-left: 30px;
+}
+.icon-name{
+    text-align: center;
+    word-wrap: break-word;
+    font-size: 14px;
+}
+
+.dragging{
+    opacity: .7;
+}

@@ -1,0 +1,10 @@
+use `history.pushState`
+localStorage.setItem('key', 'value')
+localStorage.getItem('key');
+
+
+localStorage.setItem("listRandomDefinition", JSON.stringify([]));
+parseInt(localStorage.getItem("indexBlock"))
+
+
+e.nextElementSibling.firstChild

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styleWaL.css">
+    <title>Document</title>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <img src="/goback_but.png" width="50px" height="40px" class="goBack-page" onclick="goBack()">
+            <div class="title">This is title</div>
+            <img src="/settingimg.png" width="50px" height="50px" class="setting">
+        </div>
+
+        <div class="container-body">
+            <div class="ctn-head-ques">
+                <strong class="termStr">Term</strong> 
+                <span class="cr-id-ques"></span>   
+            </div> 
+            
+            <div class="ctn-ques">
+                <button class="btn-hide-ans" onclick='hintAns()'>Click to see</button>
+                <img src="/speakerItem.png" class="item-speaker" onclick="speakTerm()">
+            </div>
+
+            <div class="ctn-inputAns">
+                <textarea class="inputAns" placeholder="Input here"></textarea>
+                <div class="ans-and-submit">
+                    <span class="dpl-ans">You don't know</span>
+                    <button class="submit" onclick="submit()">Submit</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="scriptWaL.js" ></script>
+    <script src="/local.js"></script>
+</body>
+</html>

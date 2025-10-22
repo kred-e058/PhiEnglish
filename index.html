@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+	<link rel="stylesheet" href="style.css">
+	<base href="/PhiEnglish">
+</head>
+<body>
+	<div class="navbar">
+		<div class="left-nav">logo</div>
+		<div class="right-nav">Feedback</div>
+	</div>
+	<div class="container-twoButton">
+		<button class="createTagFolder" style="margin-right:20px;" onclick="createTag(1)">Create a tag</button>
+		<button class="createTagFolder" onclick="createFolder(1)">Create a folder</button>
+	</div>
+	<div class="container-2">
+		<div class="url">
+		</div>
+		<div class="container-block"></div>
+	</div>
+	<script src="script.js"></script>
+	<script src="local.js"></script>
+	<br>
+	<button onclick="get_URL()">Get url</button> 
+	<button ondblclick="clearlocal()">Clear localStorage</button>
+	<button onclick="showRootLocal()">show local</button>
+	<br>
+	<br>
+	<button onclick="get_current_urlObject(JSON.parse(localStorage.getItem('root')))">Show current url object</button>
+	<button onclick="show_containerBox()">Show container-block</button>
+</body>
+</html>
+ 

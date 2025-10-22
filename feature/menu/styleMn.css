@@ -1,0 +1,126 @@
+body{
+    position: relative;
+    margin: 0;
+    background-color: #1E1E1E;
+    font-family: hurme_no2-webfont,-apple-system,BlinkMacSystemFont,sans-serif;
+    font-size: 100%;
+    line-height: 1.625;
+    color:#fffffe;
+}
+button{
+    cursor: pointer;
+}
+.container{
+    /* background-color: white; */
+    margin: 0 auto;
+    margin: 10px;
+    padding: 10px;
+    margin: 0 auto;
+    max-width: 800px;
+}
+    .header{
+        display: flex;
+        justify-content: space-between;
+        /* background-color: #fffffe; */
+    }
+        .goBack-page{
+            border: 1px solid black;
+            border-radius: 15px;
+            background-color: #00C2FF;
+            cursor:pointer;
+        }
+
+        .title{
+            align-self: center;
+        }
+        .setting{
+            cursor: pointer;
+        }
+    .container-body{
+        padding-top: 10px;
+        margin: 10px;
+        text-align: center;
+        background-color: #323240;
+        border-radius: 10px;
+    }
+    .practice-btn{
+        width: 65%;
+        height: 60px; 
+        margin-bottom: 15px;
+        background: linear-gradient(135deg, #8B5CF6, #EC4899);
+        color: #fff;
+        margin-bottom:20px;
+
+    }
+    .practice-btn:hover {
+        transform: scale(1.03);
+        box-shadow: 0 0 15px #EC4899;
+    }
+
+/* multiple choices */
+.ctn-ques{
+    position: relative;
+    text-align: start;
+    margin-left: 15px;
+    padding:10px;
+    font-size: 18px;
+}
+
+.ctn-alts{
+    margin-top: 10px;
+    padding:5px;
+}
+    .alts{
+        width: 70%;
+        height: 50px;
+        margin: 5px;
+        /* background-color: #7f5af0; */
+        background: linear-gradient(135deg, #8B5CF6, #EC4899);
+        color: #fffffe;
+        font-size: 15px;
+        border: 0;
+        border-radius: 5px;
+    }
+    .alts:hover{
+        transform: scale(1);
+        box-shadow: 0 0 15px #EC4899;
+    }
+
+.btn-nextQs{
+    background-color: rgb(0, 15, 185);
+    color: white;
+    border: 0px;
+    padding:10px;
+    padding:10px 30px;
+    border-radius: 20px;
+    position: absolute;
+    right: 70px;
+}
+.greenTick{
+    height: 113px; 
+    width: 200px;
+}
+
+.ctn-bbar{
+    display: flex;
+    justify-content: space-evenly;
+    margin-top: 10px;
+    padding: 10px;
+    /* border: 1px solid white; */
+}
+    .finish-btn{
+        border: 0;
+        border-radius: 50px;
+        padding: 8px;
+        margin-bottom: 10px;
+        font-weight: 550;
+    }
+    .btn-DA{
+        margin-left: 10px; 
+        background-color: #40d791;
+     }
+     .btn-ctn{
+        margin-right: 10px;  
+        color:#fff; 
+        background-color: #2a03b6;  
+    } 
