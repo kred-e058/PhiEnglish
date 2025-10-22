@@ -145,7 +145,7 @@ function finish(){
     //wish
     let wish = document.createElement('div')
     wish.classList.add('awish')
-    wish.innerHTML = '<img src="../../../greenTick.png" class="greenTick"><br>'
+    wish.innerHTML = '<img src="../../greenTick.png" class="greenTick"><br>'
     wish.innerHTML += 'Congratulation! keep going +1%';
     ctn_res.appendChild(wish);
 
