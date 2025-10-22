@@ -97,7 +97,7 @@ function finish(){
     //wish
     let wish = document.createElement('div')
     wish.classList.add('awish')
-    wish.innerHTML = '<img src="./greenTick.png" class="greenTick"><br>'
+    wish.innerHTML = '<img src="../../../greenTick.png" class="greenTick"><br>'
     wish.innerHTML += 'Congratulation! keep going +1%';
     ctn_res.appendChild(wish);
 
@@ -126,7 +126,7 @@ function finish(){
     ctn_bbar.appendChild(btn_continue);
     btn_continue.onclick = () => {
         localStorage.setItem('SPM', "menu");
-        window.location = './feature/menu/indexMn.html';
+        window.location = '../../indexMn.html';
         // window.location.reload();
     }
 
@@ -143,7 +143,7 @@ function finish(){
 }
 function goBack(){
     localStorage.setItem('SPM', 'menu');
-    window.location = './feature/menu/indexMn.html'
+    window.location = '../../feature/menu/indexMn.html'
 }
 
 

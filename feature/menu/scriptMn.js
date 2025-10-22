@@ -31,12 +31,12 @@ function add_practice_btn(){
                     multipleChoice()">Multiple choice</button><br>
 
             <button class="practice-btn" onclick="
-                window.location = '/feature/menu/WaL/indexWaL.html';
+                window.location = './WaL/indexWaL.html';
                 localStorage.setItem('id_ques', 0); 
                 randomMC();">Writting by listen</button><br>
 
             <button class="practice-btn" onclick="
-                window.location = '/feature/menu/flashcard/indexfd.html';
+                window.location = './flashcard/indexfd.html';
                 localStorage.setItem('id_ques', 0); 
                 randomMC();">Flashcards</button><br>
             <button class="practice-btn">Adding story</button>
@@ -145,7 +145,7 @@ function finish(){
     //wish
     let wish = document.createElement('div')
     wish.classList.add('awish')
-    wish.innerHTML = '<img src="./greenTick.png" class="greenTick"><br>'
+    wish.innerHTML = '<img src="../../../greenTick.png" class="greenTick"><br>'
     wish.innerHTML += 'Congratulation! keep going +1%';
     ctn_res.appendChild(wish);
 
@@ -251,7 +251,7 @@ function randomAlts(array){
 }
 function goBack(){
     if (localStorage.getItem('SPM') === 'menu'){
-        window.location = './index.html';
+        window.location = '../../index.html';
     }else {
         localStorage.setItem('SPM', 'menu');
         add_practice_btn();
