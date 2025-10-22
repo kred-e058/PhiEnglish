@@ -24,7 +24,7 @@ function add_blocks(id){
     container_column.appendChild(div);
     // trash
     let trashIcon = document.createElement('img');
-    trashIcon.src='/trash-icon.png';
+    trashIcon.src='./trash-icon.png';
     trashIcon.classList.add('trash-icon');
     trashIcon.onclick=(e)=>{
         deleteElement(e);

@@ -242,7 +242,7 @@ function openTag(e, path){
     localStorage.setItem('nameTagClicked', name);
     localStorage.setItem('SPM', 'menu');
 
-    window.location.href = (path[name]?.data.length ===0)? '/feature/input/indexIP.html': '/feature/menu/indexMn.html'; 
+    window.location.href = (path[name]?.data.length ===0)? './feature/input/indexIP.html': './feature/menu/indexMn.html'; 
 }
 function back_buttonHome(){
     let listE_urlBar = document.querySelector('.url').children;
