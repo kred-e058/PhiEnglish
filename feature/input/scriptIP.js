@@ -63,7 +63,7 @@ function add_blocks(id){
 }
 
 document.querySelector('.goBack-page').addEventListener('click', ()=>{
-    window.location = '../index.html';
+    window.location = '../../index.html';
 })
 
 function addMoreBut(e){
