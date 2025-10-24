@@ -10,31 +10,54 @@ button{
 }
 .navbar{
     display: flex;
+    /* position: fixed; */
+    /* top:0px; */
     justify-content: space-between;
     align-items: center;
-    max-width: 800px;
     min-height: 50px;
     margin: 0 auto;
-    /*  */
-    
+    margin-bottom: 20px;
+    border-bottom: 1px solid black;
+    width: 100%;
+    background-color: var(--background-color);
 }
-    .left-nav{
-        /* width: 50px;
-        height: 50px; */
-        /* margin-right: 10px; */
+    .ctn-logo{
         cursor: pointer;
+        display: flex;
+        align-items: center;
     }
-    .right-nav{
-        /* margin-right: 10px; */
-        font-size: 17px;
-        font-weight: 530;
+        .logo{
+            height: 50px;
+            width: 50px;
+            border-radius: 50px;
+            
+        }
+        .web-name{
+            margin-left: 5px;
+            color: #ffb742;
+            font-weight: 600;
+            font-family: sans-serif;
+            text-decoration: none;
+        }
+    .navbar ul{
+        display: flex;
+    }
+    .navbar ul li {
+        list-style: none;
+    }
+    .navbar ul li a{
+        color: var(--text-color);
+        text-decoration: none;
+        margin-right: 25px;
+        font-size: 16px;
+        transition: color 0.3s ease;
         cursor: pointer;
     }
 .container-twoButton{
     background-color: #323240;
     border-radius: 9px 9px 0px 0px;
     padding: 7px;
-    margin-top:20px;
+    margin-top:10px;
     font-size: 20px;
     max-width: 800px;
     margin: 0 auto;

@@ -4,10 +4,14 @@ let root = JSON.parse(localStorage.getItem('root'));
 let tagName = localStorage.getItem('nameTagClicked');
 let data = JSON.parse(localStorage.getItem('data'));
 
+//title page
+let title = document.querySelector('.title')
+title.innerText = tagName
+
 //random Data
 let rdData = JSON.parse(localStorage.getItem('rdData'));
 
-//SpeechSynthesis Utterance 
+//SpeechSynthe sis Utterance 
 let voices = speechSynthesis.getVoices();
 speechSynthesis.onvoiceschanged= (() =>{
         voices = speechSynthesis.getVoices();
@@ -44,11 +48,6 @@ function hintAns(){
     btnHide.classList.add('be-not-hide')
     btnHide.innerText = rdDef[id_ques];
 }
-function reHintAns(){
-    let btnHide = document.querySelector('.btn-hide-ans');
-    btnHide.classList.remove('be-not-hide')
-    btnHide.innerText = "click to see";
-}
 
 // onclick Enter fast submit 
 document.querySelector('.inputAns').addEventListener('keydown', (e) =>{
@@ -65,6 +64,7 @@ function submit(){
 
     //check answer
     if (userAns === rdTerm[id_ques].trim().toLowerCase() ) {
+        texteare.classList.remove('wrong-ans');
         id_ques++;
         reDplAns();
         if (id_ques === rdTerm.length) {
@@ -75,10 +75,12 @@ function submit(){
             Dpl_currentId_ques()
             speakTerm()
             reHintAns();
+            reHintAns();
         }
         
     } else {
-        alert('false')
+        texteare.classList.add('wrong-ans');
+        console.log('animation wrong ans');
     }
 }
 if (id_ques >= rdTerm.length) finish();
@@ -138,6 +140,7 @@ function finish(){
     document.querySelector('.container-body').style.cssText=`
         text-align: center;
     `
+     playAuClick2()
 }
 
 // onclick "You don't know"
@@ -150,7 +153,7 @@ function dplAns(){
 }
 function reDplAns(){
     let button = document.querySelector('.dpl-ans');
-    button.innerText = "You don't know";
+    button.innerText = "Bạn không biết?";
 }
 
 function goBack(){
@@ -225,3 +228,23 @@ function randomArray(array){
     }
     return array;
 }  
+
+//sound when click button 
+document.querySelector('.submit').addEventListener('click', ()=>{
+    playAuClick();
+})
+function playAuClick(){
+    let click = new Audio("../../../click.wav");
+    click.volume = 0.03;
+    console.log(123);
+    click.currentTime = 0;
+    click.play();
+}
+
+//sound Winning 
+function playAuClick2(){
+    let click = new Audio('../../../winSound.wav')
+    click.volume = 0.07;
+    click.currentTime = 0;
+    click.play();
+}

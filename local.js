@@ -36,6 +36,13 @@ function set_root_local(){
         console.log(LA);
         localStorage.setItem('LA', JSON.stringify(LA));
     }
+    if (localStorage.getItem('listName') === null){
+        let listName = new Object
+        listName = {
+            thisisdraftno3onecansetthisnameomgm2m1m194 : 1
+        };
+        localStorage.setItem('listName', JSON.stringify(listName));
+    }
 }
 set_root_local();
 

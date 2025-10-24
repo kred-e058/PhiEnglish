@@ -16,25 +16,36 @@ function createTag(isNew, old_name){
     let newTag = document.createElement("img");
     newTag.src='./file.png';
     newTag.classList.add("iconTag");
+
     //onclick
     newTag.onclick = (e) =>{
         openTag(e,path);
     }
+
     //name
+    let listName = JSON.parse(localStorage.getItem('listName'));
     let name = document.createElement("div");
     name.classList.add("icon-name");
-    // if (!old_name) name.innerText = "New tag " + String(path.indexFile)
-    //     else name.innerText = old_name;
-
-    name.innerText = old_name?old_name:"New tag " + String(path.indexFile);
+    if (old_name) {
+        name.innerText = old_name
+    }else{
+        let autoName = "New tag " + String(path.indexFile)
+        let i = 1;
+        while (listName[autoName]){
+            autoName += '*';
+        }
+        name.innerText = autoName;
+    }
     name.addEventListener("dblclick", function (){
-        changeName(container, name, newTag );
+    changeName(container, name, newTag );
     });
-
+    // add listName 
+    listName[name.innerText]=1;
+    localStorage.setItem('listName', JSON.stringify(listName))
+    ///////
     container.appendChild(newTag);
     container.appendChild(name);
     div.appendChild(container);   
-
     let listIconBox = document.querySelectorAll(".icon-box");
     dragAndDrop(listIconBox);
 
@@ -45,7 +56,6 @@ function createTag(isNew, old_name){
         data: path[name.innerText]?.data || []
     }
     localStorage.setItem("root", JSON.stringify(root));
-
     // store currentURL
     let currentURL = {
         urlsBar: get_URL()
@@ -107,13 +117,10 @@ function createFolder(isNew, old_name){
 
 function changeName(container, name, icon){
     let div = document.querySelector(".container-block");
-        let root = JSON.parse(localStorage.getItem("root"));
-        let path = get_current_urlObject(root);
-        let entriesPathObject = Object.entries(path);
-        for (let [key, value] of entriesPathObject){
-            console.log(key, value);
-        }
-        let old_name = name.innerText;
+    let root = JSON.parse(localStorage.getItem("root"));
+    let path = get_current_urlObject(root);
+    let entriesPathObject = Object.entries(path);
+    let old_name = name.innerText;
     name.remove();
     name=document.createElement("input");
     name.placeholder = "Enter";
@@ -157,6 +164,12 @@ function changeName(container, name, icon){
             }
             path = Object.assign(path, Object.fromEntries(entriesPath));
             localStorage.setItem("root", JSON.stringify(root));
+
+            // add listName and remove oldName
+            let listName = JSON.parse(localStorage.getItem('listName'));
+            delete listName[old_name];
+            listName[new_name] = 1;
+            localStorage.setItem('listName', JSON.stringify(listName));
         }
         else {
             let new_name = name.value;
@@ -294,3 +307,6 @@ function show_containerBox(){
     console.log(container[0].children);
 }
 
+function getListName(){
+
+}

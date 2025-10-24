@@ -5,11 +5,20 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>Document</title>
 	<link rel="stylesheet" href="style.css">
+	<link rel='stylesheet' href="root.css"
 </head>
 <body>
 	<div class="navbar">
-		<div class="left-nav">logo</div>
-		<div class="right-nav">Feedback</div>
+		<div class="ctn-logo">
+			<img src="/logo.png" class="logo" onclick="window.location='./'">
+			<a class="web-name" href="./">Phi English</a>
+		</div>
+		<ul>
+			<li><a href="./">Home</a></li>
+			<li><a>Tiến Độ</a></li>
+			<li><a>Phản Hồi</a></li>
+			<li><a>Giới Thiệu</a></li>
+		</ul>
 	</div>
 	<div class="container-twoButton">
 		<button class="createTagFolder" style="margin-right:20px;" onclick="createTag(1)">Create a tag</button>
@@ -32,4 +41,4 @@
 	<button onclick="show_containerBox()">Show container-block</button>
 </body>
 </html>
- 
+  

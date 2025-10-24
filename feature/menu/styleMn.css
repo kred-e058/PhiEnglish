@@ -1,17 +1,18 @@
 body{
     position: relative;
     margin: 0;
-    background-color: #1E1E1E;
+    background-color: var(--background-color);
     font-family: hurme_no2-webfont,-apple-system,BlinkMacSystemFont,sans-serif;
     font-size: 100%;
     line-height: 1.625;
-    color:#fffffe;
+    color: var(--font-text-color);
 }
 button{
     cursor: pointer;
 }
 .container{
     /* background-color: white; */
+
     margin: 0 auto;
     margin: 10px;
     padding: 10px;
@@ -20,27 +21,34 @@ button{
 }
     .header{
         display: flex;
-        justify-content: space-between;
-        /* background-color: #fffffe; */
+        position: relative;
+        justify-content: center;
     }
         .goBack-page{
-            border: 1px solid black;
+            /* border: 1px solid black; */
             border-radius: 15px;
-            background-color: #00C2FF;
+            background-color: var(--background-color);
             cursor:pointer;
+            height: 50px;
         }
-
+        .header div{
+            position: absolute;
+            right: 10px;
+        }
         .title{
             align-self: center;
         }
         .setting{
             cursor: pointer;
         }
+        /* .header button:hover{
+           
+        } */
     .container-body{
         padding-top: 10px;
         margin: 10px;
         text-align: center;
-        background-color: #323240;
+        background-color: var(--bgr-ctn-color);
         border-radius: 10px;
     }
     .practice-btn{
@@ -48,7 +56,7 @@ button{
         height: 60px; 
         margin-bottom: 15px;
         background: linear-gradient(135deg, #8B5CF6, #EC4899);
-        color: #fff;
+        color: var(--font-text-color);
         margin-bottom:20px;
 
     }
@@ -121,6 +129,79 @@ button{
      }
      .btn-ctn{
         margin-right: 10px;  
-        color:#fff; 
-        background-color: #2a03b6;  
+        color:var(--font-text-color); 
+        background-color: var(--submit-btn-color)
     } 
+
+.popup-ctn{
+    display: none;
+    min-width: 500px;
+    min-height: 450px;
+    background-color: rgb(48, 35, 35);
+    opacity: 0.99;
+    z-index: 3;
+    position: fixed;
+    flex-direction: column;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    justify-content: center;
+    align-items: center;
+}
+    .close-popup{
+        position: absolute;
+        right: 20px;
+        top: 10px;
+        height: 40px;
+        width: 43px;
+        cursor: pointer;
+    }
+    .popup-ctn-button{
+        width: 80%;
+        height: 350px;
+        text-align: center;
+        /* border: 1px solid white; */
+    }
+        .pu-rename{
+            width: 300px;
+            height: 40px;
+            background-color: var(--normal-btn);
+            color: var(--font-text-color);
+            border-radius: 10px;
+            font-size: 18px;
+            padding: 5px;
+        }
+        .input-rename{
+            margin-top: 10px;
+            color:white;
+            resize: none;
+            width: 300px;
+            background-color: #334443;
+            border-radius: 10px;
+            font-size: 18px;
+        }
+
+        .btn_save_nnam{
+            height: 35px;
+            width: 70px;
+            background-color: var(--normal-btn);
+            color: var(--font-text-color);
+            font-size: 18px;
+            border-radius: 15px;
+            /* padding: 15px; */
+        }
+        .warning{
+            display: block;
+            color: red;
+            font-size: 14px;
+        }
+            .hide{
+                display: none;
+            }
+        .pu-edit{
+            background-color: var(--normal-btn);
+            min-height: 40px;
+            height:auto;
+            margin-top: 20px;
+            padding: 10px;
+        }

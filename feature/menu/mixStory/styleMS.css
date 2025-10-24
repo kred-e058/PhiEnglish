@@ -1,0 +1,52 @@
+body{
+    /* position: relative; */
+    margin: 0;
+    background-color: var(--background-color);
+    font-family: hurme_no2-webfont,-apple-system,BlinkMacSystemFont,sans-serif;
+    font-size: 100%;
+    line-height: 1.625;
+    color:var(--font-text-color);
+}
+button{
+    cursor: pointer;
+}
+.container{
+    margin: 10px;
+    padding: 10px;
+    margin: 0 auto;
+}
+    .header{
+        display: flex;
+        justify-content: center;
+        font-weight: 550;
+        position: relative;
+    }
+        .goBack-page{
+            /* border: 1px solid black; */
+            border-radius: 15px;
+            background-color: var(--background-color);
+            cursor:pointer;
+            height: 48px;
+        }
+
+        .title{
+            align-self: center;
+        }
+        .setting{
+            cursor: pointer;
+        }
+        .header div{
+            position: absolute;
+            right: 10px;
+            display: flex;
+            align-items: center;
+        }
+    .container-body{
+        padding-top: 10px;
+        background-color: #323240;
+        border-radius: 10px;
+        max-width: var(--max-width-ctn);
+        padding: 10px;
+        margin:0 auto;
+        margin-top: 20px;
+    }

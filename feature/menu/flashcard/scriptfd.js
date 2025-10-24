@@ -1,4 +1,5 @@
 // set variables
+localStorage.setItem('menu', 'flashcard')
 let currentURL = JSON.parse(localStorage.getItem('currentURL'));
 let root = JSON.parse(localStorage.getItem('root'));
 let tagName = localStorage.getItem('nameTagClicked');
@@ -9,6 +10,11 @@ let rdData = JSON.parse(localStorage.getItem('rdData'));
 let rdTerm = rdData[0];
 console.log(rdData);
 let rdDef = rdData[1];
+
+//title page
+let title = document.querySelector('.title')
+title.innerText = tagName
+
 
 function currentIdQues(){
     let crid = document.querySelector('.cr-id-ques');
@@ -76,6 +82,7 @@ speechSynthesis.addEventListener('voiceschanged', () =>{
 function speakText(text){
     let utterance = new SpeechSynthesisUtterance(text)
     utterance.rate = 1;
+    utterance.currentTime = 0;
     utterance.voice = voices[5];
     speechSynthesis.speak(utterance);
 }
@@ -85,6 +92,7 @@ document.querySelector('.speaker').onclick = () =>{
 }
 
 function finish(){
+    playAuClick2()
     localStorage.setItem('SPM', 'finish')
     let ctn_body = document.querySelector('.container-body')
     ctn_body.innerHTML = '';
@@ -98,7 +106,7 @@ function finish(){
     let wish = document.createElement('div')
     wish.classList.add('awish')
     wish.innerHTML = '<img src="../../../greenTick.png" class="greenTick"><br>'
-    wish.innerHTML += 'Congratulation! keep going +1%';
+    wish.innerHTML += 'Tuyệt vời! Giữ vững tinh thần nhé +1%';
     ctn_res.appendChild(wish);
 
     //container bottom bar 
@@ -110,7 +118,7 @@ function finish(){
     let btn_DA = document.createElement('button');
     btn_DA.classList.add('btn-DA');
     btn_DA.classList.add('finish-btn');
-    btn_DA.innerText = 'Do again'
+    btn_DA.innerText = 'Làm lại'
     ctn_bbar.appendChild(btn_DA)
     btn_DA.onclick = () =>{
         localStorage.setItem('id_ques', '0');
@@ -122,12 +130,11 @@ function finish(){
     let btn_continue = document.createElement('button');
     btn_continue.classList.add('btn-ctn');
     btn_continue.classList.add('finish-btn');
-    btn_continue.innerText = 'Continue';
+    btn_continue.innerText = 'Tiếp tục';
     ctn_bbar.appendChild(btn_continue);
     btn_continue.onclick = () => {
         localStorage.setItem('SPM', "menu");
         window.location = '../indexMn.html';
-        // window.location.reload();
     }
 
     //Add learning analytis 
@@ -213,3 +220,22 @@ function randomArray(array){
     }
     return array;
 }  
+
+//sound when click button 
+document.querySelector('.flashcard').addEventListener('click', ()=>{
+    playAuClick();
+})
+function playAuClick(){
+    let click = new Audio("../../../click.wav");
+    click.volume = 0.02;
+    click.currentTime = 0;
+    click.play();
+}
+
+//sound Winning 
+function playAuClick2(){
+    let click = new Audio('../../../winSound.wav')
+    click.volume = 0.07;
+    click.currentTime = 0;
+    click.play();
+}

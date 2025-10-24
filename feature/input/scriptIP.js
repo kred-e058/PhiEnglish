@@ -1,33 +1,54 @@
 let currentURL = JSON.parse(localStorage.getItem('currentURL'));
 let root = JSON.parse(localStorage.getItem('root'));
-
-
-
 let path = get_current_urlObject(root);
 let tagName = localStorage.getItem('nameTagClicked');
-let index = 1;
+let data = path[tagName].data;
+let checkEditPage = 0;
+// Check data exist
+function isEditPage(){
+    console.log(path)
+    console.log(data)
+    if (data.length !== 0){
+        checkEditPage = 1;
+        console.log("is an edit page")
+    } else return ;
+}
+isEditPage();
+
+//set SPM
+localStorage.setItem('SPM', 'input')
+
+let index = 0;
 for (let i = 0; i < 3; i++){
     add_blocks(index);
 }
 document.querySelector('.title').innerText = tagName;
 function add_blocks(id){
     let containerInput = document.querySelector('.container-input');
-    containerInput.appendChild(document.createElement('br'));
+
     //container_column
     let container_column = document.createElement('div');
     container_column.classList.add('input-Row');
     containerInput.appendChild(container_column);
+
+     //number
+    let number = document.createElement('span');
+    number.innerText = id+1;
+    number.classList.add('numbers')
+
     //number and trash
     let div = document.createElement('div');
-    div.innerText = index;
+    div.appendChild(number);
     div.classList.add('title-input-bar')
     container_column.appendChild(div);
+
     // trash
     let trashIcon = document.createElement('img');
     trashIcon.src='../../trash-icon.png';
     trashIcon.classList.add('trash-icon');
     trashIcon.onclick=(e)=>{
-        deleteElement(e);
+        // console.log(id);
+        deleteElement(e, number.innerText);
     }
 
     div.appendChild(trashIcon);
@@ -42,8 +63,15 @@ function add_blocks(id){
     textarea1.classList.add('inp-text');
     textarea1.classList.add('isTerm');
     textarea1.placeholder = 'input';
+    if (checkEditPage){
+        textarea1.value = (data[0][id])?data[0][id]:''
+    }
     boxT.appendChild(textarea1);
-    boxT.innerHTML+=  'Enter Term';
+
+    //span Enter Term 
+    let spanTerm = document.createElement('span');
+    spanTerm.textContent = 'Enter Term';
+    boxT.appendChild(spanTerm);
 
     //boxD
     boxD = document.createElement('div');
@@ -56,9 +84,17 @@ function add_blocks(id){
     textarea2.classList.add('inp-text');
     textarea2.classList.add('isDefinition');
     textarea2.placeholder = 'input';
-    boxD.appendChild(textarea2);
-    boxD.innerHTML+=  'Enter Definition';
 
+    // textarea2.value = (checkEditPage)?data[1][id]:'';
+    if (checkEditPage){
+        textarea2.value = (data[1][id])?data[1][id]: ''
+    };
+    boxD.appendChild(textarea2);
+
+    //span Enter Definition
+    let spanDef = document.createElement('span')
+    spanDef.textContent = 'Enter Definition'
+    boxD.appendChild(spanDef);
     index++;
 }
 
@@ -68,7 +104,7 @@ document.querySelector('.goBack-page').addEventListener('click', ()=>{
 
 function addMoreBut(e){
     for (let i = 0; i < 3; i++)
-    add_blocks();
+    add_blocks(index);
     if (e === undefined) return;
     if (e.srcElement.classList[1] === "buttonMore-inend"){
         window.scrollTo(0, document.body.scrollHeight);
@@ -97,7 +133,7 @@ function submit(){
             list_term_value.splice(i, 1);
             list_def_value.splice(i, 1);
             i--;
-        }
+        }   
     }
     
     //localStorage
@@ -110,9 +146,15 @@ function submit(){
     console.log(JSON.parse(localStorage.getItem("root")));
     window.location = '/index.html';
 }
-function deleteElement(e){
+function deleteElement(e, id ){
     let element = e.target.offsetParent.parentElement;
-    // element.remove();
+    element.remove();
+    id--;
+    let list = document.querySelectorAll('.numbers');
+    for (let i = id; i < list.length; i++){
+        list[i].innerText=i+1;
+    }
+    index--;
 }
 
 function get_current_urlObject(root){

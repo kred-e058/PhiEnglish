@@ -2,7 +2,10 @@ let currentURL = JSON.parse(localStorage.getItem('currentURL'));
 let root = JSON.parse(localStorage.getItem('root'));
 let tagName = localStorage.getItem('nameTagClicked');
 let data = get_current_urlObject(root)[tagName].data;
-
+let path = get_current_urlObject(root);
+//title page
+let title = document.querySelector('.title')
+title.innerText = tagName
 //container-body
 if (!localStorage.getItem('SPM')){
     localStorage.setItem('SPM', "menu")
@@ -19,7 +22,7 @@ switch (localStorage.getItem('SPM')){
         multipleChoice();
         break;
     case 'finish':
-        finish();
+        finish(); 
         break;
 }
 console.log(data);
@@ -39,10 +42,22 @@ function add_practice_btn(){
                 window.location = './flashcard/indexfd.html';
                 localStorage.setItem('id_ques', 0); 
                 randomMC();">Flashcards</button><br>
-            <button class="practice-btn">Adding story</button>
+            <button class="practice-btn" onclick="
+                window.location = './mixStory/indexMS.html'
+                localStorage.setItem('id_ques', 0); 
+            ">Adding story</button>
             `
 }
 function multipleChoice(){
+    // remove Setting button 
+    let ctn_header = document.querySelector('.header');
+    let settingImg = document.querySelector('.setting');
+    settingImg.style.display = 'none';
+    let nothingIMG = document.createElement('img');
+    nothingIMG.classList.add('nothingImg')
+    nothingIMG.src = '../../backgroundItem__NOTHING.png';
+    ctn_header.appendChild(nothingIMG);
+
     let id = localStorage.getItem('id_ques');
     let rdData = JSON.parse(localStorage.getItem('rdData'));
     let rdTerm = rdData[0];
@@ -93,13 +108,10 @@ function multipleChoice(){
         alts.innerText= rdAlts[id][i];
         ctn_answers.appendChild(alts)
         alts.onclick= (e) => {
-            console.log(e.target.innerText);
             let element = e.target.innerText;
             if (element === rdDef[id]) {
                 if (document.querySelectorAll('.btn-nextQs').length === 0) isTrueAns(container);
-                e.target.style.cssText = `
-                    border: 2px solid yellow;
-                `
+                e.target.style.border = '2px solid yellow';
             } else {
                 e.target.style.cssText = `
                     background:  #323240;
@@ -110,6 +122,7 @@ function multipleChoice(){
             }
         }
     }
+    setAudio();
 
 }
 
@@ -181,8 +194,10 @@ function finish(){
     //Add learning analytis 
     let LA = JSON.parse(localStorage.getItem('LA'))
     LA.MC++
-    // console.log(LA);
     localStorage.setItem('LA', JSON.stringify(LA));
+
+    // Sound winning 
+    playAuClick2();
 }
 
 function randomMC(){
@@ -253,6 +268,10 @@ function goBack(){
     if (localStorage.getItem('SPM') === 'menu'){
         window.location = '../../index.html';
     }else {
+        let settingImg = document.querySelector('.setting');
+        settingImg.style.display = 'block';
+        let nothingIMG = document.querySelector('.nothingImg');
+        nothingIMG.remove();
         localStorage.setItem('SPM', 'menu');
         add_practice_btn();
     }
@@ -267,4 +286,31 @@ function get_current_urlObject(root){
         path = path[list_url[i]].data;
     }
     return path;
+}
+
+//sound when click button 
+function setAudio(){
+    document.querySelectorAll('.alts').forEach(e => {
+    e.addEventListener('click', ()=>{
+        playAuClick();
+        })
+    });
+}
+function playAuClick(){
+    let click = new Audio("../../click.wav");
+    click.volume = 0.03;
+    console.log(123);
+    click.currentTime = 0;
+    click.play();
+}
+
+//winning audio
+function setAudio2(){
+    playAuClick2();
+}
+function playAuClick2(){
+    let click = new Audio("../../winSound.wav");
+    click.volume = 0.05;
+    click.currentTime = 0;
+    click.play();
 }
