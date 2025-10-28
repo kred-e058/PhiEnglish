@@ -144,7 +144,7 @@ function submit(){
     // console.log(root);
     localStorage.setItem("root", JSON.stringify(root));
     console.log(JSON.parse(localStorage.getItem("root")));
-    window.location = '/index.html';
+    window.location = '../../index.html';
 }
 function deleteElement(e, id ){
     let element = e.target.offsetParent.parentElement;
